@@ -6,3 +6,6 @@
 
 # TEST ACCURACY
 # grep 'eval_accuracy' reports/haha_rs1_ag1.report | grep eval_loss | awk '{print $4}'
+
+# F1 score
+grep 'eval_f1' reports/x2.report | awk '{print $6}'

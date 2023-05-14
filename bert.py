@@ -11,6 +11,7 @@ import torch.cuda.profiler as profiler
 import collections
 
 
+
 # SETUP
 max_length = 384
 stride = 128
@@ -175,11 +176,11 @@ def main():
     training_args = TrainingArguments(
                         output_dir='./experiments/', 
                         evaluation_strategy="steps",
-                        eval_steps=200, 
-                        logging_steps=200,
+                        eval_steps=1000, 
+                        logging_steps=1000,
                         learning_rate=5e-5,
                         per_device_train_batch_size=8, #this is actually normal for LLM
-                        num_train_epochs=3)
+                        num_train_epochs=0.05)
 
     model = AutoModelForQuestionAnswering.from_pretrained("bert-base-cased")
 
@@ -194,9 +195,9 @@ def main():
     )
 
 
-    #profiler.start()
+    profiler.start()
     trainer.train()
-    #profiler.stop()
+    profiler.stop()
 
 if __name__ == '__main__':
     main()

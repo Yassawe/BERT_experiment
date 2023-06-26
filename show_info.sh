@@ -8,4 +8,7 @@
 # grep 'eval_accuracy' reports/haha_rs1_ag1.report | grep eval_loss | awk '{print $4}'
 
 # F1 score
-grep 'eval_f1' reports/x2.report | awk '{print $6}'
+# grep 'eval_f1' reports/x2.report | awk '{print $6}'
+
+# accuracy 
+grep 'eval_exact_match' adaptive/st1.report | awk '{print $6}'

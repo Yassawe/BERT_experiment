@@ -174,13 +174,13 @@ def main():
 
 
     training_args = TrainingArguments(
-                        output_dir='./experiments/', 
+                        output_dir='./adaptive/', 
                         evaluation_strategy="steps",
-                        eval_steps=1000, 
-                        logging_steps=1000,
+                        eval_steps=2000, 
+                        logging_steps=2000,
                         learning_rate=5e-5,
                         per_device_train_batch_size=8, #this is actually normal for LLM
-                        num_train_epochs=0.05)
+                        num_train_epochs=0.3)
 
     model = AutoModelForQuestionAnswering.from_pretrained("bert-base-cased")
 
